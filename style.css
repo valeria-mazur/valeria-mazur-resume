@@ -1,0 +1,314 @@
+/* ALLGEMEINE GRUNDEINSTELLUNGEN */
+/* ----------------------------------------------------- */
+
+/* Setzt Box-Modell auf border-box für einfacheres Layouting */
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    /* Sanftes Scrollen bei Anker-Links */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Century Gothic', sans-serif;
+    /* Deine gewählte Schriftart */
+    background-color: #FFFFFF;
+    /* Hintergrundfarbe: Weiß */
+    color: #333333;
+    /* Fließtextfarbe: Dunkelgrau */
+    line-height: 1.8;
+    /* Großzügiger Zeilenabstand */
+    margin: 0;
+    /* Entfernt Standard-Browser-Margin */
+    padding: 0;
+    /* Entfernt Standard-Browser-Padding */
+    -webkit-font-smoothing: antialiased;
+    /* Für glattere Schrift auf Webkit-Browsern */
+    -moz-osx-osx-font-smoothing: grayscale;
+    /* Für glattere Schrift auf Firefox (macOS) */
+}
+
+/* CONTAINER FÜR INHALTSBREITE */
+/* ----------------------------------------------------- */
+.container {
+    max-width: 800px;
+    /* Maximale Breite des Inhalts */
+    margin: 0 auto;
+    /* Zentriert den Container */
+    padding: 0 20px;
+    /* Innenabstand links und rechts auf kleineren Bildschirmen */
+}
+
+/* TYPOGRAPHIE */
+/* ----------------------------------------------------- */
+
+/* Überschriften-Styling (Schwarz, Century Gothic Bold) */
+h1,
+h2,
+h3 {
+    font-family: 'Century Gothic', sans-serif;
+    color: #000000;
+    /* Hauptfarbe: Schwarz */
+    font-weight: bold;
+    margin-top: 0;
+    /* Standard-Margin oben entfernen */
+    margin-bottom: 20px;
+    /* Abstand unter Überschriften */
+}
+
+h1 {
+    font-size: 3em;
+    /* Deutlich größer für den Namen */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.2em;
+    /* Größere Überschriften für Hauptabschnitte */
+    text-align: center;
+    padding-top: 40px;
+    /* Abstand oben für neue Sektion */
+    margin-bottom: 30px;
+    /* Abstand unten */
+    position: relative;
+}
+
+h2::after {
+    /* Linie unter den H2-Überschriften (KURZ & ZENTRIERT) */
+    content: '';
+    display: block;
+    width: 60px;
+    /* Kurze Breite der Linie */
+    height: 3px;
+    /* Dicke der Linie */
+    background-color: #C2B280;
+    /* Akzentfarbe: Beige mit Grau-Unterton */
+    margin: 15px auto 0;
+    /* Zentriert die Linie unter der Überschrift */
+}
+
+h3 {
+    font-size: 1.5em;
+    /* Überschriften für Unterabschnitte (z.B. Ausbildungstitel) */
+    margin-bottom: 10px;
+    color: #000000;
+    /* Auch hier Schwarz für Stärke */
+}
+
+p {
+    font-size: 1.125em;
+    /* 18px für Fließtext (Standard 16px * 1.125 = 18px) */
+    margin-bottom: 1.2em;
+    /* Abstand zwischen Absätzen */
+}
+
+strong {
+    font-weight: bold;
+    /* Macht den Text im Strong-Tag fett */
+    color: #000000;
+    /* Hebt wichtigen Text noch stärker hervor */
+}
+
+/* Listen-Styling (Fähigkeiten, Kurse) */
+ul {
+    list-style: none;
+    /* Entfernt Standard-Listenpunkte */
+    padding: 0;
+    /* Entfernt Standard-Padding */
+    margin-bottom: 20px;
+}
+
+ul li {
+    font-size: 1.125em;
+    /* Gleiche Schriftgröße wie Fließtext */
+    margin-bottom: 8px;
+    /* Abstand zwischen Listenelementen */
+    position: relative;
+    /* Für individuelle Listenpunkte */
+    padding-left: 20px;
+    /* Platz für den benutzerdefinierten Punkt */
+}
+
+ul li::before {
+    /* Benutzerdefinierter Listenpunkt (Beige Punkt) */
+    content: '•';
+    /* Ein Punkt-Charakter */
+    color: #C2B280;
+    /* Akzentfarbe: Beige mit Grau-Unterton */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+
+/* SEKTIONS-LAYOUT & ABSTÄNDE */
+/* ----------------------------------------------------- */
+
+.section {
+    padding: 60px 0;
+    /* Großzügige Abstände oben und unten für Sektionen */
+    position: relative;
+    /* Für die neue Linienpositionierung */
+}
+
+/* Linie zwischen Sektionen (LÄNGER ALS TEXT) */
+.section::after {
+    content: '';
+    display: block;
+    width: 120%;
+    /* Breite der Linie, breiter als der Container */
+    max-width: 850px;
+    /* Begrenzt die maximale Breite, damit sie nicht zu weit übersteht */
+    height: 1px;
+    /* Dicke der Linie */
+    background-color: #EEEEEE;
+    /* Dezente helle graue Linie */
+    position: absolute;
+    bottom: 0;
+    /* Am unteren Rand der Sektion */
+    left: 50%;
+    /* Startpunkt in der Mitte */
+    transform: translateX(-50%);
+    /* Verschiebt um die Hälfte der Breite nach links */
+}
+
+.section:last-of-type::after {
+    display: none;
+    /* Keine Linie unter der letzten Sektion */
+}
+
+
+/* HEADER & FOOTER */
+/* ----------------------------------------------------- */
+
+#main-header {
+    background-color: #FFFFFF;
+    /* Header-Hintergrund bleibt weiß */
+    padding: 80px 0 40px;
+    /* Großzügiger Abstand oben und unten */
+    text-align: center;
+}
+
+.tagline {
+    font-size: 1.4em;
+    /* Etwas größer als Fließtext */
+    color: #555555;
+    /* Etwas dunkleres Grau */
+    margin-top: -5px;
+    /* Nähe zum Namen */
+    margin-bottom: 30px;
+}
+
+#main-footer {
+    background-color: #FFFFFF;
+    /* Footer-Hintergrund bleibt weiß */
+    padding: 40px 0 30px;
+    text-align: center;
+    border-top: 1px solid #EEEEEE;
+    /* Dezente Linie über dem Footer */
+}
+
+.copyright {
+    font-size: 0.9em;
+    color: #888888;
+    margin-top: 20px;
+}
+
+
+/* KONTAKT-BLOCK */
+/* ----------------------------------------------------- */
+
+.contact-block {
+    display: flex;
+    /* Elemente nebeneinander */
+    flex-wrap: wrap;
+    /* Umbruch auf mehreren Zeilen auf kleinen Bildschirmen */
+    justify-content: center;
+    /* Zentriert die Elemente */
+    gap: 25px;
+    /* Abstand zwischen den Elementen */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-block p {
+    font-size: 1.1em;
+    /* Etwas kleiner als Fließtext, aber gut lesbar */
+    margin: 0;
+    /* Entfernt Standard-Margin von p-Elementen */
+    display: flex;
+    /* Flexbox für Icon und Text */
+    align-items: center;
+    /* Zentriert Icon und Text vertikal */
+    color: #333333;
+    /* Textfarbe wie Fließtext */
+}
+
+.contact-block svg {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    vertical-align: middle;
+    stroke: #C2B280;
+    /* Füge diese Zeile hinzu, um die Icons Beige zu machen */
+}
+
+.contact-block a {
+    color: #333333;
+    /* Linkfarbe im Kontaktblock */
+    text-decoration: none;
+    /* Entfernt Standard-Unterstrich */
+    border-bottom: 1px solid transparent;
+    /* Für Hover-Effekt */
+    transition: border-bottom 0.3s ease;
+    /* Sanfter Übergang */
+}
+
+.contact-block a:hover {
+    border-bottom-color: #C2B280;
+    /* Beige Unterstrich beim Hover */
+}
+
+
+/* AUSBILDUNG SPEZIFISCH */
+/* ----------------------------------------------------- */
+
+.education-item {
+    margin-bottom: 40px;
+    /* Abstand zwischen einzelnen Ausbildungseinträgen */
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #EEEEEE;
+    /* Dezente gestrichelte Linie */
+}
+
+.education-item:last-of-type {
+    border-bottom: none;
+    /* Keine Linie unter dem letzten Eintrag */
+}
+
+.education-item h3 {
+    margin-bottom: 5px;
+    /* Näher an Zeitraum */
+}
+
+.education-item .period {
+    font-size: 1em; 
+    color: #555555;
+
+}
+ 
+
+
+
+
+
+
+
+
+   
